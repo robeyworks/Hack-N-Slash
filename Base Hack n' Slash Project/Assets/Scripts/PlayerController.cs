@@ -6,7 +6,7 @@ using UnityEngine;
  * Dash (shift)
  * Movement
  * Power jetpack (space)
- * Roadhog hook (right-click)
+ * Roadhog hook (right-click)           make it not collide with the player. Search "CHANGE THIS"
  * 
  * 
  * https://www.youtube.com/watch?v=LNLVOjbrQj4
@@ -116,9 +116,10 @@ public class PlayerController : MonoBehaviour
         //hook
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log("Pressed right click.");
+            //Debug.Log("Pressed right click.");
             hookOut = true;
-            Rigidbody instantiatedProjectile = Instantiate(hook, transform.position, Quaternion.identity) as Rigidbody;
+            Vector3 hookSpawn = new Vector3((diff.x / Mathf.Abs(diff.x)) * .5f, 0f, (diff.z / Mathf.Abs(diff.z)) * .5f);
+            Rigidbody instantiatedProjectile = Instantiate(hook, transform.position + hookSpawn, Quaternion.identity) as Rigidbody;//CHANGE THIS    transform.position + the distance so it doesn't spawn in player
             //Vector3 aim = diff;
             //aim.Normalize();
             //instantiatedProjectile.velocity = new Vector3(aim.x * hookSpeed, 0, aim.z * hookSpeed);
@@ -126,7 +127,7 @@ public class PlayerController : MonoBehaviour
             //instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, hookSpeed));
 
             //turn off collision with player
-            Physics.IgnoreCollision(instantiatedProjectile.GetComponent<Collider>(), transform.root.GetComponent<Collider>());
+            //Physics.IgnoreCollision(instantiatedProjectile.GetComponent<Collider>(), transform.root.GetComponent<Collider>());
             
 
             /*if (Physics.Raycast(ray))

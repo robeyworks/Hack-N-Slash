@@ -30,6 +30,10 @@ public class HookScript : MonoBehaviour
         Vector3 aim = hookDiff;
         aim.Normalize();
         GetComponent<Rigidbody>().velocity = new Vector3(aim.x * 20f, 0, aim.z * 20f);
+        gameObject.transform.position += new Vector3(aim.x, 0f, aim.z);//(0f, 3f, 0f);
+
+        Debug.Log(gameObject.transform.position);
+        //Debug.Log(aim);
     }
 
     // Update is called once per frame
@@ -44,6 +48,6 @@ public class HookScript : MonoBehaviour
 
 
 
-        Debug.Log(GetComponent<Rigidbody>().velocity);
+        //Debug.Log(GetComponent<Rigidbody>().velocity);
     }
 }
