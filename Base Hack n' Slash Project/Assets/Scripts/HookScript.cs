@@ -31,4 +31,13 @@ public class HookScript : MonoBehaviour
         GetComponent<Rigidbody>().velocity = new Vector3(aim.x * speed, 0, aim.z * speed);
         //gameObject.transform.position += new Vector3(aim.x, 0f, aim.z);//(0f, 3f, 0f);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Hit obstacle");
+            Destroy(gameObject);
+        }
+    }
 }
