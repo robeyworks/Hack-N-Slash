@@ -5,7 +5,7 @@ using UnityEngine;
 public class HookScript : MonoBehaviour
 {
     //public Rigidbody projectile;
-    //public float speed = 20;
+    private float speed = 20f;
     private Vector3 hookIntersection;
     private Vector3 hookDiff;
 
@@ -13,7 +13,6 @@ public class HookScript : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, 1f);
-
 
         //Rotation
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -26,28 +25,10 @@ public class HookScript : MonoBehaviour
             hookDiff = hookIntersection - transform.position;
         }
 
-
+        //give hook velocity
         Vector3 aim = hookDiff;
         aim.Normalize();
-        GetComponent<Rigidbody>().velocity = new Vector3(aim.x * 20f, 0, aim.z * 20f);
-        gameObject.transform.position += new Vector3(aim.x, 0f, aim.z);//(0f, 3f, 0f);
-
-        Debug.Log(gameObject.transform.position);
-        //Debug.Log(aim);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        /*if (Input.GetMouseButtonDown(1))
-        {
-            Rigidbody instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as Rigidbody;
-            instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
-        }*/
-
-
-
-
-        //Debug.Log(GetComponent<Rigidbody>().velocity);
+        GetComponent<Rigidbody>().velocity = new Vector3(aim.x * speed, 0, aim.z * speed);
+        //gameObject.transform.position += new Vector3(aim.x, 0f, aim.z);//(0f, 3f, 0f);
     }
 }

@@ -9,10 +9,4 @@ public class DashParticleScript : MonoBehaviour
     {
         Destroy(gameObject, .33f);
     }
-
-    // Update is called once per physics calculation
-    void FixedUpdate()
-    {
-        //
-    }
 }

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class WalkParticleScript : MonoBehaviour
 {
-    private float v, h;
-
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Destroy(gameObject, .1f);
     }
+    
+    private float v, h;
 
     // Update is called once per physics calculation
     void FixedUpdate()
