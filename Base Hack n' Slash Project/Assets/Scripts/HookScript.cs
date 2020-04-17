@@ -8,10 +8,12 @@ public class HookScript : MonoBehaviour
     private float speed = 20f;
     private Vector3 hookIntersection;
     private Vector3 hookDiff;
+    private Rigidbody hookRB;
 
     // Start is called before the first frame update
     void Start()
     {
+        //destroy hook 1 second after spawning
         Destroy(gameObject, 1f);
 
         //Rotation
@@ -28,8 +30,8 @@ public class HookScript : MonoBehaviour
         //give hook velocity
         Vector3 aim = hookDiff;
         aim.Normalize();
-        GetComponent<Rigidbody>().velocity = new Vector3(aim.x * speed, 0, aim.z * speed);
-        //gameObject.transform.position += new Vector3(aim.x, 0f, aim.z);//(0f, 3f, 0f);
+        hookRB = GetComponent<Rigidbody>();
+        hookRB.velocity = new Vector3(aim.x * speed, 0, aim.z * speed);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -38,6 +40,12 @@ public class HookScript : MonoBehaviour
         {
             Debug.Log("Hit obstacle");
             Destroy(gameObject);
+        }
+        else if (other.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Hit enemy");
+            GetComponent<Rigidbody>().velocity *= -.5f;
+            other.GetComponent<Rigidbody>().velocity = hookRB.velocity;
         }
     }
 }
