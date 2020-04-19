@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4185985644529554812}
   - component: {fileID: 9056604945772397789}
   - component: {fileID: 5287643853448046374}
-  - component: {fileID: 5626076580088875620}
   m_Layer: 0
   m_Name: Jelly
   m_TagString: Untagged
@@ -83,24 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &5626076580088875620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4758671264408413095, guid: a3cc383ec625afa49b5c5c138b353c86,
-    type: 3}
-  m_PrefabInstance: {fileID: 4185985644529554813}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1684674084838861154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1ea37b1251483c439fa76ce78660c3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpots: []
-  jelly: {fileID: 0}
-  startWaitTime: 0
-  lookRadius: 4
-  enemyLevel: 0
 --- !u!1 &4185985643793536136
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +94,7 @@ GameObject:
   - component: {fileID: 4185985643793536141}
   - component: {fileID: 4185985643793536142}
   - component: {fileID: 4185985643793536143}
-  - component: {fileID: 4185985643793536131}
+  - component: {fileID: -5920606817788850458}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -188,7 +169,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4185985643793536131
+--- !u!114 &-5920606817788850458
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,18 +178,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4185985643793536136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1ea37b1251483c439fa76ce78660c3f, type: 3}
+  m_Script: {fileID: 11500000, guid: 21fe6d079648b7343bbc007446eff307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  agent: {fileID: 0}
   jelly: {fileID: 4185985643793536136}
-  startWaitTime: 0
-  lookRadius: 8
   enemyLevel: 0
+  isDead: 0
 --- !u!1001 &4185985644529554813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -283,4 +259,5 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2547175248467818844, guid: a3cc383ec625afa49b5c5c138b353c86, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a3cc383ec625afa49b5c5c138b353c86, type: 3}

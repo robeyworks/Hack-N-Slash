@@ -7,7 +7,6 @@ public class PatrolAI : MonoBehaviour
 {
     public NavMeshAgent agent;
     Transform target;
-    //public Transform[] moveSpots;
     List<Transform> moveSpots;
     List<GameObject> jellies;
     public GameObject jelly;
@@ -33,10 +32,10 @@ public class PatrolAI : MonoBehaviour
             if (levelRandom > .9f) enemyLevel = 3;
         }
         
-        //print(enemyLevel);
+        
         agent = GetComponent<NavMeshAgent>();
         target = PlayerManager.instance.player.transform;
-        //jelly = GameObject.FindGameObjectWithTag("Enemy");
+        
         moveSpots = new List<Transform>();
         jellies = new List<GameObject>();
         jellies.Add(jelly);
@@ -47,7 +46,7 @@ public class PatrolAI : MonoBehaviour
             GameObject movePoint = GameObject.Find("moveSpot" + i);
             moveSpots.Add(movePoint.transform);
         }
-        //print(moveSpots.Count);
+        
         randomSpot = Random.Range(0, moveSpots.ToArray().Length);
         
     }
@@ -110,15 +109,7 @@ public class PatrolAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
     
-    private void OnCollisionEnter(Collision other)
-    {
-        
-        if (other.gameObject.CompareTag("Player"))
-        {
-            //EnemySplit(enemyLevel);
-            //Destroy(other.gameObject);
-        }
-    } 
+   
     private void EnemySplit(int level)
     {
         isDead = true;
