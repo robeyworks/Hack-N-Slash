@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour
     private float v;
     private float h;
 
+    public float playerMaxHealth = 100;
+    public float playerCurrentHealth;
+    
+
     public GameObject spawnDashParticles;
     private float dashTimer;
     private bool invulnerable = false;
@@ -47,6 +51,8 @@ public class PlayerController : MonoBehaviour
     {
         player = GetComponent<CharacterController>();
         dashTimer = 4f;
+        
+        //HUDController.SetSliderMaxValue(, playerMaxHealth);
     }
     
     // Update is called once per frame
